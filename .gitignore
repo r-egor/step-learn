@@ -1,0 +1,13 @@
+.DS_Store
+.idea/
+README.ME
+__init__.py
+__pycache__/
+venv/
+chromedriver
+Page/locators/__init__.py
+Page/__init__.py
+test/__init__.py
+Page/__pycache__/
+tests/__pycache__/
+Page/__pycache__/
