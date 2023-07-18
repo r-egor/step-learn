@@ -9,15 +9,21 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    """ Эта функция запуская и отвечает за процесс возврата результата welcome.html. """
+    """ Эта функция запускает Home Page """
 
-    return render_template("index.html")
+    return render_template('index.html')
 
+@app.route('/AutomationTest')
+def autotest():
+    """ Эта функция запускает Automation Test Page  """
 
-@app.route("/error")
-def error():
-    """Эта функция запуская и отвечает за процесс возврата результата test_error.html."""
-    return render_template('test_error.html')
+    return render_template('AutomationTest.html')
+
+@app.route('/BotPage')
+def bot():
+    """ Эта функция запускает Bot Page  """
+
+    return render_template('BotPage.html')
 
 
 @app.route("/runallure")
@@ -30,7 +36,7 @@ def run_allure():
                           stdin=subprocess.PIPE,
                           universal_newlines=True) as result:
         out = result.communicate()
-    return render_template('BotPage.html', text=out, json=out)
+    return render_template('AutomationTest.html', text=out, json=out)
 
 
 @app.route("/run")
