@@ -12,20 +12,18 @@ from conftest import driver
 def test_project(driver):
     rabota_by = methods_for_project.RabotaBy(driver)
     rabota_by.open()
-    time.sleep(2)
-    rabota_by.fill_search_input()
-    time.sleep(2)
-    rabota_by.click_fiend_button()
-    time.sleep(2)
-    rabota_by.set_radio_button_income_level()
-    time.sleep(2)
-    rabota_by.scroll_down()
-    time.sleep(2)
-    rabota_by.set_check_box_speciality()
-    time.sleep(2)
-    rabota_by.scroll_up()
-    time.sleep(2)
-    rabota_by.open_first_vacancies()
-    time.sleep(2)
-    rabota_by.check_page()
-    time.sleep(2)
+
+    steps_data = [
+        (rabota_by.fill_search_input, 2),
+        (rabota_by.click_fiend_button, 2),
+        (rabota_by.set_radio_button_income_level, 2),
+        (rabota_by.scroll_down, 2),
+        (rabota_by.set_check_box_speciality, 2),
+        (rabota_by.scroll_up, 2),
+        (rabota_by.open_first_vacancies, 2),
+        (rabota_by.check_page, 2),
+    ]
+
+    for step, delay in steps_data:
+        step()
+        time.sleep(delay)

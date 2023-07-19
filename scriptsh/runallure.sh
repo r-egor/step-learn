@@ -1,2 +1,2 @@
 #!/bin/bash
-allure serve /Users/egor/PycharmProjects/pythonProject/reports
+allure serve /Users/egor/PythonProjects/step-learn/reports
