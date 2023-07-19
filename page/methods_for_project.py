@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from Page.base_page import BasePage
-from Page.locators import locators_for_project
+from page.base_page import BasePage
+from page.locators import locators_for_project
+from page.API import api_for_project
 import allure
 
 
@@ -43,3 +44,7 @@ class RabotaBy(BasePage):
     def check_page(self):
         with allure.step("Проверить что вакансия открыта"):
             self.is_element_present(locators_for_project.respond_button)
+
+    def check_api(self):
+        with allure.step("Проверка API"):
+            self.make_api_request(api_for_project.vacancies_of_the_day)

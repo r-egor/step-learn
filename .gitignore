@@ -5,10 +5,10 @@ __init__.py
 __pycache__/
 venv/
 chromedriver
-Page/locators/__init__.py
-Page/__init__.py
+page/locators/__init__.py
+page/__init__.py
 test/__init__.py
-Page/__pycache__/
+page/__pycache__/
 tests/__pycache__/
-Page/__pycache__/
+page/__pycache__/
 reports/

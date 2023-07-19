@@ -1,8 +1,8 @@
 import time
 import allure
 import pytest
-from Page import methods_for_project
-from Page import base_page
+from page import methods_for_project
+from page import base_page
 from conftest import driver
 
 

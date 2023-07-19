@@ -3,8 +3,9 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-from Page.locators import locators_for_project
+from page.locators import locators_for_project
 import allure
+import requests
 
 
 # 1. selenium.common.TimeoutException - исключение, которое возникает, когда таймаут истекает в Selenium WebDriver.
@@ -141,3 +142,23 @@ class BasePage:
         source_web_element = self.find_element(source)
         action = ActionChains(self.driver)
         action.drag_and_drop_by_offset(source_web_element, x_offset, y_offset).perform()
+
+    def make_api_request(url, method='GET', headers=None, params=None, data=None, json=None):
+        """
+        Функция для выполнения API-запросов.
+
+        Аргументы:
+        url (str): URL для запроса.
+        method (str): HTTP-метод запроса (по умолчанию 'GET').
+        headers (dict): Заголовки запроса (по умолчанию None).
+        params (dict): Параметры запроса для метода GET (по умолчанию None).
+        data: Данные запроса для методов POST, PUT, PATCH (по умолчанию None).
+        json: JSON-данные запроса для методов POST, PUT, PATCH (по умолчанию None).
+
+        Возвращает:
+        requests.Response: Ответ на запрос.
+        """
+
+        response = requests.request(method, url, headers=headers, params=params, data=data, json=json)
+        response.raise_for_status()  # Генерирует исключение в случае ошибки HTTP (код >= 400)
+        return response
