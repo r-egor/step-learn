@@ -1,6 +1,4 @@
 import allure, pytest, requests
-from page import methods_for_project
-from page import base_page
 from page.API.api_for_project import Url, Headers
 
 

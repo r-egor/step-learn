@@ -1,5 +1,3 @@
-from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
 from page.base_page import BasePage
 from page.locators import locators_for_project
 from page.API import api_for_project

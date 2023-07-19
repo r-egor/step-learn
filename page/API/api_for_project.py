@@ -1,4 +1,3 @@
-
 class Url:
     url_vacancies_of_the_day = "https://rabota.by/shards/vacancies_of_the_day"
 

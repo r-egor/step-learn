@@ -2,7 +2,6 @@ import time
 import allure
 import pytest
 from page import methods_for_project
-from page import base_page
 from conftest import driver
 
 
