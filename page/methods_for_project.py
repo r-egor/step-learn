@@ -13,13 +13,27 @@ class RabotaBy(BasePage):
         with allure.step("Перейти на главную страницу"):
             self.driver.get('https://rabota.by')
 
+        # Find title Работа найдётся для каждого
+        main_title_found = self.is_elements_text_equal_to(locators_for_project.main_title,
+                                                          element_text='Работа найдётся для каждого')
+        assert main_title_found, 'Работа найдётся для каждого, элемент не найден'
+
     def fill_search_input(self):
         with allure.step("В поле поиска ввести желаемую профессию"):
             self.find_element(locators_for_project.search_field).send_keys("QA")
 
-    def click_fiend_button(self):
+        # Find Button Find
+        find_button_found = self.is_element_present(locators_for_project.find_button)
+        assert find_button_found, 'Кнопка Найти не найдена'
+
+    def click_find_button(self):
         with allure.step("Нажать на кнопку Найти"):
-            self.find_element(locators_for_project.fiend_button).click()
+            self.find_element(locators_for_project.find_button).click()
+
+        # Find name Vacancies "QA"
+        vacancies_found = self.is_elements_text_equal_to(locators_for_project.vacancy_search,
+                                                         element_text="QA")
+        assert vacancies_found, "Вакансии не найдены"
 
     def set_radio_button_income_level(self):
         with allure.step("Выбрать желаемую зарплату"):
@@ -43,6 +57,5 @@ class RabotaBy(BasePage):
         with allure.step("Проверить что вакансия открыта"):
             self.is_element_present(locators_for_project.respond_button)
 
-    def check_api(self):
-        with allure.step("Проверка API"):
-            self.make_api_request(api_for_project.vacancies_of_the_day)
+        vacancy_title_found = self.is_elements_text_equal_to(locators_for_project.vacancy_title, element_text="QA")
+        assert vacancy_title_found, "Заголовок вакансии не найден"

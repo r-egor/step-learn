@@ -1,6 +1,8 @@
 class Url:
     url_vacancies_of_the_day = "https://rabota.by/shards/vacancies_of_the_day"
 
+    url_hh = "https://rabota.by/api/fl/idgib-w-hh"
+
 class Headers:
     headers = {
         'authority': 'rabota.by',

@@ -14,7 +14,7 @@ def test_project(driver):
 
     steps_data = [
         (rabota_by.fill_search_input, 2),
-        (rabota_by.click_fiend_button, 2),
+        (rabota_by.click_find_button, 2),
         (rabota_by.set_radio_button_income_level, 2),
         (rabota_by.scroll_down, 2),
         (rabota_by.set_check_box_speciality, 2),

@@ -26,12 +26,12 @@ from selenium.webdriver.common.proxy import *
 def driver():
 
     options = Options()
+    service = Service()
     # options.add_argument("--headless")
     options.add_argument("--disable-gpu")
     options.add_argument('log-level=3')
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver_service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=driver_service, options=options)
+    driver = webdriver.Chrome(service=service, options=options)
     driver.maximize_window()
     driver.accept_untrusted_certs = True
     driver.implicitly_wait(10)
