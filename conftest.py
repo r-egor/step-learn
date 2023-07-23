@@ -1,15 +1,8 @@
-import requests
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import pytest, requests, logging
+import pytest
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import base64
-from selenium.webdriver import DesiredCapabilities
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.proxy import *
 
 
 # 1. requests - библиотека для отправки HTTP-запросов и получения ответов. Она используется для взаимодействия с веб-серверами и получения данных с веб-страниц.
