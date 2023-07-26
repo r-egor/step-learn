@@ -29,11 +29,6 @@ class RabotaBy(BasePage):
         if not find_button_found:
             raise AssertionError('Кнопка Найти не найдена')
 
-    def fill_search_input(self):
-        with allure.step("В поле поиска ввести желаемую профессию"):
-            search_field = self.find_element(locators_for_project.search_field)
-            search_field.send_keys("QA")
-
     def click_find_button(self):
         with allure.step("Нажать на кнопку Найти"):
             self.find_element(locators_for_project.find_button).click()

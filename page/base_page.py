@@ -140,7 +140,7 @@ class BasePage:
         action = ActionChains(self.driver)
         action.drag_and_drop_by_offset(source_web_element, x_offset, y_offset).perform()
 
-    def make_api_request(url, method='GET', headers=None, params=None, data=None, json=None):
+    def make_api_request(url, method=None, headers=None, **kwargs):
         """
         Функция для выполнения API-запросов.
 
@@ -156,6 +156,7 @@ class BasePage:
         requests.Response: Ответ на запрос.
         """
 
-        response = requests.request(method, url, headers=headers, params=params, data=data, json=json)
+        response = requests.request(url, method, headers=headers, **kwargs)
         response.raise_for_status()  # Генерирует исключение в случае ошибки HTTP (код >= 400)
         return response
+
